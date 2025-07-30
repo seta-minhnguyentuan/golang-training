@@ -1,0 +1,20 @@
+type User {
+  userId: ID!
+  username: String!
+  email: String!
+  role: String!
+  PasswordHash: String!
+}
+
+type Query {
+  fetchUsers: [User!]!
+  getUserByID(userId: ID!): User
+}
+
+type Mutation {
+  createUser(username: String!, email: String!, role: String!, password: String!): User!
+  updateUser(userId: ID!, username: String, email: String, role: String, password: String): User
+  deleteUser(userId: ID!): Boolean
+  login(email: String!, password: String!): String!
+  logout: Boolean!
+}
